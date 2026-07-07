@@ -7,7 +7,65 @@
   <title>CryptOwl - Crypto Strategy Through Time</title>
   <meta name="description" content="Build trading logic, rewind it through market history, and watch it live. A scroll-driven story template.">
   <meta name="color-scheme" content="dark">
-  <script>document.documentElement.dataset.js = "true";</script>
+  <script>
+    // 首帧前 boot：写 motion 偏好 + data-js 门控 + reload/hash 进场时隐藏滚动层避免闪现。
+    // 对应 css/base.css 的 [data-hero-reload-boot] / [data-initial-section-navigation] 规则。
+    (() => {
+      const root = document.documentElement;
+      let motion = 'full';
+      try {
+        const stored = window.localStorage.getItem('cryptowl.motionPreference');
+        if (stored === 'comfort') motion = 'comfort';
+      } catch {}
+      root.dataset.motionPreference = motion;
+      root.dataset.motion = motion;
+      root.dataset.js = 'true';
+
+      const restoreScroll = (bootKey, restorationKey) => () => {
+        if (root.dataset[bootKey] === 'pending') delete root.dataset[bootKey];
+        if (root.dataset[restorationKey] === 'manual') {
+          try {
+            window.history.scrollRestoration = 'auto';
+          } catch {}
+          delete root.dataset[restorationKey];
+        }
+      };
+
+      if (window.location.hash.length > 1) {
+        // 带锚点进场：先隐藏滚动层，等布局/平滑滚动就位再显示
+        root.dataset.initialSectionNavigation = 'pending';
+        try {
+          window.history.scrollRestoration = 'manual';
+          root.dataset.initialSectionNavigationScrollRestoration = 'manual';
+        } catch {}
+        const reveal = restoreScroll('initialSectionNavigation', 'initialSectionNavigationScrollRestoration');
+        window.addEventListener('load', () => window.setTimeout(reveal, 900), { once: true });
+        window.addEventListener('pageshow', () => window.setTimeout(reveal, 900), { once: true });
+        window.setTimeout(reveal, 2500);
+        return;
+      }
+
+      const navigationType = performance.getEntriesByType('navigation')[0]?.type ?? 'navigate';
+      if (navigationType !== 'reload') return;
+
+      // 刷新进场：hero 区内刷新则强制回顶（hero.js 会重放 intro），期间隐藏滚动层
+      root.dataset.heroReloadBoot = 'pending';
+      let wasInHeroZone = false;
+      try {
+        wasInHeroZone = window.sessionStorage.getItem('cryptowl.heroReloadWasInHeroZone') === 'true';
+      } catch {}
+      if (wasInHeroZone) {
+        try {
+          window.history.scrollRestoration = 'manual';
+          root.dataset.heroReloadScrollRestoration = 'manual';
+        } catch {}
+        root.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo(0, 0);
+      }
+      window.setTimeout(restoreScroll('heroReloadBoot', 'heroReloadScrollRestoration'), 1200);
+    })();
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <link rel="preload" href="fonts/poppins-300.woff2" as="font" type="font/woff2" crossorigin>

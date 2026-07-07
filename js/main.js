@@ -12,7 +12,6 @@ import { initControl } from './scenes/control.js';
 import { initAnalytics } from './scenes/analytics.js';
 import { initProductEntry } from './scenes/product-entry.js';
 import { initExit } from './scenes/exit.js';
-import { initBridges } from './scenes/bridges.js';
 
 const start = () => {
   const { gsap, ScrollTrigger, ScrollSmoother, SplitText } = window;
@@ -48,7 +47,6 @@ const start = () => {
     ['analytics', initAnalytics],
     ['product-entry', initProductEntry],
     ['exit', initExit],
-    ['bridges', initBridges],
   ];
   for (const [name, init] of scenes) {
     try {
