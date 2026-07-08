@@ -189,11 +189,12 @@
     overflow: hidden;
     color: var(--color-contrast);
     font-family: var(--font-display);
-    font-size: clamp(2.25rem, 8vw, 2.75rem);
+    /* 换皮调整：新标题更长（≈15.8em），手机端允许折行，≥40rem 恢复单行并按宽度限字号 */
+    font-size: clamp(2rem, 8vw, 2.75rem);
     font-weight: var(--font-weight-display-light);
     line-height: 1.2;
     letter-spacing: 0;
-    white-space: nowrap
+    white-space: normal
 }
 
 .time-replay-scene__title-text {
@@ -486,7 +487,7 @@
 
 @media(width<25rem) {
     .time-replay-scene__title {
-        font-size: clamp(2rem, 8.6vw, 2.25rem)
+        font-size: clamp(1.75rem, 8vw, 2.25rem)
     }
     .time-replay-metrics {
         width: min(calc(100% - 1.5rem), 23rem);
@@ -518,7 +519,8 @@
         grid-template-rows: minmax(6.5rem, 24svh) minmax(0, 1fr)
     }
     .time-replay-scene__title {
-        font-size: clamp(2.5rem, 6vw, 2.75rem)
+        font-size: min(clamp(2.5rem, 6vw, 2.75rem), calc((100vw - var(--container-padding-x) * 2) / 15.9));
+        white-space: nowrap
     }
     .time-replay-range {
         width: min(82vw, 42rem);
@@ -544,7 +546,7 @@
         grid-template-rows: minmax(7.25rem, 27svh) minmax(0, 1fr)
     }
     .time-replay-scene__title {
-        font-size: clamp(2.75rem, 7.4vw, 8.5rem)
+        font-size: min(clamp(2.75rem, 7.4vw, 8.5rem), calc((100vw - var(--container-padding-x) * 2) / 15.9))
     }
     .time-replay-range {
         width: min(72vw, 72rem);
