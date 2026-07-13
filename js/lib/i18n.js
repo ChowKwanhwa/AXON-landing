@@ -35,7 +35,7 @@ const ZH_TEXTS = [
     '原生内置，而非事后拼接', 'AI 代理支付', 'PayFi 货币市场', '同一条底层链', '即刻开始构建',
   ]],
   ['#strategy-title', ['原生，即设计。']],
-  ['.scene-body__line', ['支付原语内置于底层协议。', '而非事后补丁。']],
+  ['.scene-body__line', ['支付所需的能力，原生内置于链的底层，', '而不是事后加装的补丁。']],
   ['.strategy-fragment__label', ['最终性', '稳定币', '费用代付', '合规']],
   ['.strategy-fragment__value', [
     '亚秒级，不可逆转', '一等公民结算资产', 'Paymaster 无 Gas 体验', '可插拔 KYC/AML 网关',
@@ -70,7 +70,7 @@ const ZH_TEXTS = [
   ['.product-entry-scene__action .button__label', ['阅读文档']],
   ['.product-entry-scene__action.text-link', ['联系团队']],
   ['#exit-title', ['在一条可以验证的链上结算。']],
-  ['.exit-scene__body', ['开放的原语、透明的资金流，以及清楚展示每一笔资金去向的文档。']],
+  ['.exit-scene__body', ['开放的底层能力、透明的资金流，以及把每一笔资金去向都写清楚的文档。']],
   ['.exit-scene__action .button__label', ['阅读文档']],
   ['.exit-scene__action.text-link', ['加入 Telegram']],
   ['.site-footer__link', ['首页', '文档', '联系']],
@@ -79,13 +79,13 @@ const ZH_TEXTS = [
 // hero 折面标题需保留三段 span 结构，手工分段（拼接 = "资金结算于"）
 const applyHeroZh = () => {
   const hidden = document.querySelector('.hero__headline .visually-hidden');
-  if (hidden) hidden.textContent = '资金结算于 ';
+  if (hidden) hidden.textContent = '资金的下一站 ';
   const bendLeft = document.querySelector('.hero__headline-line-bend--left');
   const plane = document.querySelector('.hero__headline-line-plane');
   const bendRight = document.querySelector('.hero__headline-line-bend--right');
   if (bendLeft) bendLeft.textContent = '资';
-  if (plane) plane.textContent = '金结算';
-  if (bendRight) bendRight.textContent = '于';
+  if (plane) plane.textContent = '金的下一';
+  if (bendRight) bendRight.textContent = '站';
   const subhead = document.querySelector('.hero__subhead');
   if (subhead) {
     subhead.innerHTML = [
