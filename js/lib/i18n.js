@@ -28,7 +28,7 @@ const ZH_TEXTS = [
   ['[data-motion-choice="comfort"]', ['舒适']],
   ['.header-menu__legal-link', ['隐私政策', '使用条款', '风险披露']],
   ['.hero__content-cta .button__label', ['阅读文档']],
-  ['.hero__content-cta-alt', ['$AXON 代币']],
+  ['.hero__content-cta-alt .button__label', ['$AXON 代币']],
   ['.hero__timeline-label--rewind', ['结算']],
   ['.gate-question__lead', ['稳定币的链上结算规模，已超过主要银行卡网络的总和。']],
   ['.gate-question__headline-line', ['那么，为什么', '资金的流转', '仍停留在 T+2？']],
@@ -72,8 +72,8 @@ const ZH_TEXTS = [
   ['.product-entry-scene__action.text-link', ['联系团队']],
   ['#exit-title', ['在一条可以验证的链上结算。']],
   ['.exit-scene__body', ['开放的底层能力、透明的资金流，以及把每一笔资金去向都写清楚的文档。']],
-  ['.exit-scene__action .button__label', ['阅读文档']],
-  ['.exit-scene__action.text-link', ['加入 Telegram', '$AXON 代币']],
+  ['.exit-scene__action .button__label', ['阅读文档', '$AXON 代币']],
+  ['.exit-scene__action.text-link', ['加入 Telegram']],
   ['.site-footer__link', ['首页', '文档', '联系']],
 ];
 

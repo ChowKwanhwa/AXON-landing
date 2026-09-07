@@ -866,6 +866,27 @@ html[data-motion=comfort] .button:hover:after {
     }
 }
 
+.button--accent {
+    background: var(--color-accent);
+    color: rgb(var(--rgb-base-deep))
+}
+
+.button--accent:before {
+    border-color: rgb(var(--rgb-accent-soft) / .32);
+    background: var(--color-accent)
+}
+
+@media(hover:hover)and (pointer:fine) {
+    .button--accent:hover {
+        background: var(--color-visual-accent-strong);
+        color: rgb(var(--rgb-base-deep))
+    }
+    .button--accent:hover:before {
+        border-color: rgb(var(--rgb-accent-soft) / .52);
+        background: var(--color-visual-accent-strong)
+    }
+}
+
 .site-footer {
     --site-footer-edge-space: clamp(2rem, 8vw, 3rem);
     width: 100%;
