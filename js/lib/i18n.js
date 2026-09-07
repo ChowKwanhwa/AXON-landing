@@ -23,11 +23,12 @@ const ZH_TEXTS = [
   ['.header-menu__eyebrow', ['导航', '站点页面', '入口', '动效', '法律']],
   ['.header-menu__section-link', ['首页', '协议', '引擎', '代理', '市场', '实证']],
   ['.header-menu__page-link', ['文档', '联系']],
-  ['.header-menu__action span', ['阅读文档', '加入 Telegram']],
+  ['.header-menu__action span', ['阅读文档', '加入 Telegram', '$AXON 代币']],
   ['[data-motion-choice="full"]', ['完整']],
   ['[data-motion-choice="comfort"]', ['舒适']],
   ['.header-menu__legal-link', ['隐私政策', '使用条款', '风险披露']],
   ['.hero__content-cta .button__label', ['阅读文档']],
+  ['.hero__content-cta-alt', ['$AXON 代币']],
   ['.hero__timeline-label--rewind', ['结算']],
   ['.gate-question__lead', ['稳定币的链上结算规模，已超过主要银行卡网络的总和。']],
   ['.gate-question__headline-line', ['那么，为什么', '资金的流转', '仍停留在 T+2？']],
@@ -72,7 +73,7 @@ const ZH_TEXTS = [
   ['#exit-title', ['在一条可以验证的链上结算。']],
   ['.exit-scene__body', ['开放的底层能力、透明的资金流，以及把每一笔资金去向都写清楚的文档。']],
   ['.exit-scene__action .button__label', ['阅读文档']],
-  ['.exit-scene__action.text-link', ['加入 Telegram']],
+  ['.exit-scene__action.text-link', ['加入 Telegram', '$AXON 代币']],
   ['.site-footer__link', ['首页', '文档', '联系']],
 ];
 

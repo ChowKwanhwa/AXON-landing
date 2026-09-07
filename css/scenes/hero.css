@@ -935,6 +935,11 @@ html:not([data-interaction-section=hero]) .hero-gate__grid-light {
     --button-min-width: var(--hero-content-cta-min-width)
 }
 
+.hero__content-cta-alt {
+    font-size: var(--hero-content-cta-font-size);
+    white-space: nowrap
+}
+
 .hero__timeline {
     left: 50%;
     bottom: var(--hero-timeline-bottom);
